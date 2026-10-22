@@ -9,19 +9,27 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=splash-pure-20261022">
+  <link rel="stylesheet" href="styles.css?v=splash-name-20261022">
 </head>
 <body>
-  <section class="splash-screen" id="splash-screen" aria-label="Açılış animasyonu" hidden>
+  <section class="splash-screen" id="splash-screen" aria-label="Dr. Ali İhsan Yaka mesleki profil açılışı" hidden>
     <div class="splash-grain" aria-hidden="true"></div>
-    <div class="splash-art-stage" aria-hidden="true">
-      <div class="splash-orbit splash-orbit-one"></div>
-      <div class="splash-orbit splash-orbit-two"></div>
-      <div class="splash-orbit splash-orbit-three"></div>
-      <div class="splash-backplate"></div>
-      <div class="splash-sculpture"><span class="splash-sphere"></span></div>
-      <span class="splash-satellite"></span>
-      <span class="splash-satellite splash-satellite-small"></span>
+    <div class="splash-inner">
+      <div class="splash-copy">
+        <p class="splash-kicker">KLİNİK PSİKOLOG <i></i> PSİKOTERAPİST</p>
+        <h1>Dr. Ali İhsan Yaka</h1>
+        <p class="splash-description">Klinik psikoloji, psikanalitik kuram ve toplumsal travma üzerine çalışmalar.</p>
+        <span class="splash-index">KLİNİK <i></i> AKADEMİ <i></i> SAHA</span>
+      </div>
+      <div class="splash-art-stage" aria-hidden="true">
+        <div class="splash-orbit splash-orbit-one"></div>
+        <div class="splash-orbit splash-orbit-two"></div>
+        <div class="splash-orbit splash-orbit-three"></div>
+        <div class="splash-backplate"></div>
+        <div class="splash-sculpture"><span class="splash-sphere"></span></div>
+        <span class="splash-satellite"></span>
+        <span class="splash-satellite splash-satellite-small"></span>
+      </div>
     </div>
     <button class="splash-skip" type="button" aria-label="Açılış animasyonunu geç"></button>
     <span class="splash-progress" aria-hidden="true"><i></i></span>
@@ -214,7 +222,7 @@
       splash.querySelector('.splash-skip').addEventListener('click', closeSplash);
       window.addEventListener('keydown', (event) => { if (event.key === 'Escape') closeSplash(); });
       if (reducedMotion) window.setTimeout(closeSplash, 900);
-      else window.setTimeout(closeSplash, 3600);
+      else window.setTimeout(closeSplash, 4800);
     })();
   </script>
 </body>
