@@ -201,9 +201,7 @@
     (() => {
       const splash = document.getElementById('splash-screen');
       const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      let alreadySeen = false;
-      try { alreadySeen = sessionStorage.getItem('ali-yaka-splash-seen') === '1'; } catch (_) {}
-      if (alreadySeen || window.location.hash) return;
+      if (window.location.hash) return;
 
       splash.hidden = false;
       document.body.classList.add('splash-active');
@@ -211,7 +209,6 @@
         if (splash.hidden) return;
         splash.classList.add('splash-closing');
         document.body.classList.remove('splash-active');
-        try { sessionStorage.setItem('ali-yaka-splash-seen', '1'); } catch (_) {}
         window.setTimeout(() => { splash.hidden = true; }, reducedMotion ? 0 : 360);
       };
       splash.querySelector('.splash-skip').addEventListener('click', closeSplash);
