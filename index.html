@@ -9,38 +9,21 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=splash-monogram-20261022">
+  <link rel="stylesheet" href="styles.css?v=splash-pure-20261022">
 </head>
 <body>
-  <section class="splash-screen" id="splash-screen" aria-labelledby="splash-title" hidden>
+  <section class="splash-screen" id="splash-screen" aria-label="Açılış animasyonu" hidden>
     <div class="splash-grain" aria-hidden="true"></div>
-    <div class="splash-inner">
-      <div class="splash-copy">
-        <a class="splash-brand" href="#anasayfa" aria-label="Dr. Ali İhsan Yaka ana sayfa">
-          <span class="splash-mark">AY</span>
-          <span><strong>Dr. Ali İhsan Yaka</strong><small>Klinik Psikolog · Psikoterapist</small></span>
-        </a>
-        <div class="splash-message">
-          <p class="splash-kicker"><span></span> KLİNİK · AKADEMİ · SAHA</p>
-          <h1 id="splash-title">İnsanı, yaşadığı bağlam içinde <em>anlamak.</em></h1>
-          <p>Klinik çalışma, araştırma ve insan deneyimine dair mesleki bir profil.</p>
-          <button class="splash-enter" type="button">Siteye geç <span aria-hidden="true">↗</span></button>
-        </div>
-        <span class="splash-index" aria-hidden="true">DR. ALİ İHSAN YAKA <i></i> MESLEKİ PROFİL</span>
-      </div>
-      <div class="splash-art-stage" role="img" aria-label="Dr. Ali İhsan Yaka için üç boyutlu AY monogramı">
-        <div class="splash-orbit splash-orbit-one" aria-hidden="true"></div>
-        <div class="splash-orbit splash-orbit-two" aria-hidden="true"></div>
-        <div class="splash-backplate" aria-hidden="true"></div>
-        <div class="splash-sculpture" aria-hidden="true">
-          <span class="splash-monogram">AY</span>
-          <span class="splash-sculpture-line"></span>
-          <span class="splash-sculpture-label">KLİNİK · AKADEMİ · SAHA</span>
-        </div>
-        <span class="splash-seal" aria-hidden="true">A<br>Y</span>
-        <span class="splash-caption" aria-hidden="true">Kişi · Klinik · Toplum</span>
-      </div>
+    <div class="splash-art-stage" aria-hidden="true">
+      <div class="splash-orbit splash-orbit-one"></div>
+      <div class="splash-orbit splash-orbit-two"></div>
+      <div class="splash-orbit splash-orbit-three"></div>
+      <div class="splash-backplate"></div>
+      <div class="splash-sculpture"><span class="splash-sphere"></span></div>
+      <span class="splash-satellite"></span>
+      <span class="splash-satellite splash-satellite-small"></span>
     </div>
+    <button class="splash-skip" type="button" aria-label="Açılış animasyonunu geç"></button>
     <span class="splash-progress" aria-hidden="true"><i></i></span>
   </section>
 
@@ -231,8 +214,7 @@
         try { sessionStorage.setItem('ali-yaka-splash-seen', '1'); } catch (_) {}
         window.setTimeout(() => { splash.hidden = true; }, reducedMotion ? 0 : 360);
       };
-      splash.querySelector('.splash-enter').addEventListener('click', closeSplash);
-      splash.querySelector('.splash-brand').addEventListener('click', closeSplash);
+      splash.querySelector('.splash-skip').addEventListener('click', closeSplash);
       window.addEventListener('keydown', (event) => { if (event.key === 'Escape') closeSplash(); });
       if (reducedMotion) window.setTimeout(closeSplash, 900);
       else window.setTimeout(closeSplash, 3600);
