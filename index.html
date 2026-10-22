@@ -12,6 +12,37 @@
   <link rel="stylesheet" href="styles.css?v=mobile-layout-20261022">
 </head>
 <body>
+  <section class="splash-screen" id="splash-screen" aria-labelledby="splash-title" hidden>
+    <div class="splash-grain" aria-hidden="true"></div>
+    <div class="splash-inner">
+      <div class="splash-copy">
+        <a class="splash-brand" href="#anasayfa" aria-label="Dr. Ali İhsan Yaka ana sayfa">
+          <span class="splash-mark">AY</span>
+          <span><strong>Dr. Ali İhsan Yaka</strong><small>Klinik Psikolog · Psikoterapist</small></span>
+        </a>
+        <div class="splash-message">
+          <p class="splash-kicker"><span></span> KLİNİK · AKADEMİ · SAHA</p>
+          <h1 id="splash-title">İnsanı, yaşadığı bağlam içinde <em>anlamak.</em></h1>
+          <p>Klinik çalışma, araştırma ve insan deneyimine dair mesleki bir profil.</p>
+          <button class="splash-enter" type="button">Siteye geç <span aria-hidden="true">↗</span></button>
+        </div>
+        <span class="splash-index" aria-hidden="true">DR. ALİ İHSAN YAKA <i></i> MESLEKİ PROFİL</span>
+      </div>
+      <div class="splash-portrait-stage" aria-label="Dr. Ali İhsan Yaka'nın portresi">
+        <div class="splash-orbit splash-orbit-one" aria-hidden="true"></div>
+        <div class="splash-orbit splash-orbit-two" aria-hidden="true"></div>
+        <div class="splash-backplate" aria-hidden="true"></div>
+        <figure class="splash-portrait">
+          <img src="https://i1.rgstatic.net/ii/profile.image/11431281639180446-1758201814621_Q128/Ali-Ihsan-Yaka.jpg" alt="Dr. Ali İhsan Yaka" fetchpriority="high">
+          <figcaption><span>KLİNİK PSİKOLOG</span><strong>Ali İhsan Yaka</strong></figcaption>
+        </figure>
+        <span class="splash-seal" aria-hidden="true">A<br>Y</span>
+        <span class="splash-caption" aria-hidden="true">Kişi · Klinik · Toplum</span>
+      </div>
+    </div>
+    <span class="splash-progress" aria-hidden="true"><i></i></span>
+  </section>
+
   <header class="site-header">
     <a class="brand" href="#anasayfa" aria-label="Dr. Ali İhsan Yaka ana sayfa">
       <span class="brand-mark" aria-hidden="true">AY</span>
@@ -182,5 +213,29 @@
     </div>
     <div class="footer-bottom"><span>DR. ALİ İHSAN YAKA · MESLEKİ PROFİL</span><a href="#anasayfa">Sayfanın başına dön</a></div>
   </footer>
+  <script>
+    (() => {
+      const splash = document.getElementById('splash-screen');
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      let alreadySeen = false;
+      try { alreadySeen = sessionStorage.getItem('ali-yaka-splash-seen') === '1'; } catch (_) {}
+      if (alreadySeen || window.location.hash) return;
+
+      splash.hidden = false;
+      document.body.classList.add('splash-active');
+      const closeSplash = () => {
+        if (splash.hidden) return;
+        splash.classList.add('splash-closing');
+        document.body.classList.remove('splash-active');
+        try { sessionStorage.setItem('ali-yaka-splash-seen', '1'); } catch (_) {}
+        window.setTimeout(() => { splash.hidden = true; }, reducedMotion ? 0 : 360);
+      };
+      splash.querySelector('.splash-enter').addEventListener('click', closeSplash);
+      splash.querySelector('.splash-brand').addEventListener('click', closeSplash);
+      window.addEventListener('keydown', (event) => { if (event.key === 'Escape') closeSplash(); });
+      if (reducedMotion) window.setTimeout(closeSplash, 900);
+      else window.setTimeout(closeSplash, 3600);
+    })();
+  </script>
 </body>
 </html>
