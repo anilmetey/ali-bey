@@ -181,6 +181,13 @@ h1 em, h2 em { color: var(--blue); font-style: normal; }
 .footer-brand .brand-copy small { font-size: 9px; }
 .site-footer p { max-width: 400px; margin: 0; color: #514e47; font-size: 11px; }
 .site-footer > a:last-child { color: var(--blue-dark); font-size: 11px; font-weight: 800; }
+.mobile-nav { display: none; }
+.footer-main { width: min(100%, 1120px); display: grid; grid-template-columns: 1fr minmax(240px, 1.2fr) auto; align-items: center; gap: 28px; margin: 0 auto; }
+.footer-main p { max-width: 430px; line-height: 1.6; }
+.footer-contact { min-height: 44px; display: inline-flex; align-items: center; justify-content: center; padding: 0 16px; border: 1px solid #d9cbbd; border-radius: 24px; color: var(--blue-dark); font-size: 11px; font-weight: 800; white-space: nowrap; }
+.footer-bottom { width: min(100%, 1120px); display: flex; justify-content: space-between; gap: 12px; margin: 22px auto 0; padding-top: 13px; border-top: 1px solid rgba(117,93,70,.18); color: #706d64; font-size: 9px; font-weight: 800; letter-spacing: .045em; }
+.footer-bottom a { color: var(--blue-dark); letter-spacing: 0; }
+.site-footer { min-height: 0; display: block; padding: 32px max(5.5%, calc((100vw - 1240px)/2)); background: #eee8df; border-top: 1px solid #e1d7cb; }
 /* A more informative profile plate, with the portrait and credentials held together. */
 .hero-card { width: min(100%, 390px); padding: 22px 22px 0; }
 .profile-identity { display: grid; grid-template-columns: 112px 1fr; align-items: center; gap: 17px; margin: 18px 0 14px; }
@@ -242,15 +249,18 @@ h1 em, h2 em { color: var(--blue); font-style: normal; }
   .hero-bottom { right: 7%; left: 7%; }
 }
 @media (max-width: 680px) {
-  html { scroll-padding-top: 72px; }
+  html { scroll-padding-top: 122px; }
   body { font-size: 15px; }
-  .site-header { height: 70px; padding: 0 15px; }
+  .site-header { height: auto; min-height: 112px; display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-rows: 56px 44px; gap: 0 9px; padding: 2px 15px 0; }
   .brand { gap: 8px; }
   .brand-mark { width: 34px; height: 34px; border-radius: 10px; font-size: 10px; }
   .brand-copy strong { font-size: 12px; }
   .brand-copy small { max-width: 150px; font-size: 8px; }
   .desktop-nav { display: none; }
-  .header-link { min-height: 38px; gap: 6px; padding: 0 13px; font-size: 11px; }
+  .header-link { min-height: 40px; gap: 6px; padding: 0 13px; font-size: 11px; }
+  .mobile-nav { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; align-items: stretch; border-top: 1px solid #eee8df; }
+  .mobile-nav a { min-height: 42px; display: flex; align-items: center; justify-content: center; color: #514a42; font-size: 11px; font-weight: 800; }
+  .mobile-nav a + a { border-left: 1px solid #eee8df; }
   .hero { display: flex; flex-direction: column; align-items: stretch; gap: 28px; padding: 48px 18px 68px; }
   .hero h1 { max-width: 500px; font-size: clamp(41px,11.3vw,56px); line-height: 1.12; }
   .eyebrow { font-size: 9px; letter-spacing: .06em; }
@@ -308,8 +318,14 @@ h1 em, h2 em { color: var(--blue); font-style: normal; }
   .faq-list summary { font-size: 13px; }
   .closing-section { padding: 62px 20px; }
   .closing-section h2 { font-size: 42px; }
-  .site-footer { flex-wrap: wrap; padding: 17px 18px; }
-  .site-footer p { order: 3; flex-basis: 100%; }
+  .site-footer { display: block; padding: 24px 18px 18px; background: #eee8df; border-top: 1px solid #e1d7cb; }
+  .footer-main { display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 15px 10px; }
+  .footer-brand { grid-column: 1 / -1; }
+  .footer-brand .brand-copy strong { font-size: 13px; }
+  .footer-brand .brand-copy small { max-width: none; font-size: 8px; }
+  .footer-main p { grid-column: 1 / -1; order: 2; max-width: none; margin: 0; color: #514e47; font-size: 11px; line-height: 1.6; }
+  .footer-contact { grid-column: 1 / -1; order: 1; width: fit-content; min-height: 44px; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; margin-top: 20px; font-size: 8px; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition-duration: .01ms !important; } }
 @media (max-width: 680px) {
